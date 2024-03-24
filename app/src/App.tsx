@@ -9,7 +9,11 @@ import {
   Grid,
   Card,
   CardContent,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { format, parseISO } from 'date-fns';
 
 const App: React.FC = () => {
@@ -23,7 +27,6 @@ const App: React.FC = () => {
     const supabase = createClient(supabaseUrl, supabaseKey);
     setSupabase(supabase);
   }, []);
- 
 
   useEffect(() => {
     const fetchRecords = async () => {
@@ -63,27 +66,36 @@ const App: React.FC = () => {
                   <Typography variant="h5" gutterBottom>
                     {formatTimestamp(record.created_at)}
                   </Typography>
-                  <Divider />
-                  <Box mt={2}>
-                    <Typography variant="body1" gutterBottom>
-                      {record.raw_text}
-                    </Typography>
-                    <Box mt={1}>
-                      <Chip
-                        label={record.prominent_emotion}
-                        color="primary"
-                        variant="outlined"
-                      />
-                    </Box>
-                    <Box mt={2}>
-                      <Typography variant="subtitle1" gutterBottom>
-                        Summary:
-                      </Typography>
-                      <Typography variant="body2">
-                        {record.summary}
-                      </Typography>
-                    </Box>
-                  </Box>
+                  <Chip
+                    label={record.prominent_emotion}
+                    color="primary"
+                    variant="outlined"
+                  />
+                  <Divider sx={{ my: 2 }} />
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="record-content"
+                      id="record-header"
+                    >
+                      <Typography variant="subtitle1">Details:</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Box mt={2}>
+                        <Typography variant="body1" gutterBottom>
+                          Transcript: {record.raw_text}
+                        </Typography>
+                        <Box mt={2}>
+                          <Typography variant="subtitle1" gutterBottom>
+                            Summary:
+                          </Typography>
+                          <Typography variant="body2">
+                            {record.summary}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </AccordionDetails>
+                  </Accordion>
                 </CardContent>
               </Card>
             </Grid>
@@ -95,3 +107,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+
