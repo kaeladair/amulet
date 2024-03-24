@@ -24,7 +24,7 @@ const App: React.FC = () => {
     const supabase = createClient(supabaseUrl, supabaseKey);
     setSupabase(supabase);
   }, []);
- 
+
 
   useEffect(() => {
     const fetchRecords = async () => {
@@ -56,7 +56,7 @@ const App: React.FC = () => {
         <Typography variant="h4" component="h1" align="center" gutterBottom>
           Audio Transcription Timeline
         </Typography>
-        <div>
+        <div className="analytics-container">
           <Analytics />
         </div>
         <Grid container spacing={3}>
