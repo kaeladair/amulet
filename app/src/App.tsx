@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { format, parseISO } from 'date-fns';
-import Analytics from './components/Analytics';
+import { emotionsToColors } from './utils/mapping';
 
 const App: React.FC = () => {
   const [records, setRecords] = useState<any[]>([]);
@@ -59,9 +59,6 @@ const App: React.FC = () => {
         <Typography variant="h4" component="h1" align="center" gutterBottom>
           Audio Transcription Timeline
         </Typography>
-        <div>
-          <Analytics />
-        </div>
         <Grid container spacing={3}>
           {records.map((record) => (
             <Grid item xs={12} key={record.id}>
@@ -72,7 +69,8 @@ const App: React.FC = () => {
                   </Typography>
                   <Chip
                     label={record.prominent_emotion}
-                    color="primary"
+                    color="default"
+                    style = {{backgroundColor: emotionsToColors(record.prominent_emotion)}}
                     variant="outlined"
                   />
                   <Divider sx={{ my: 2 }} />
@@ -111,5 +109,6 @@ const App: React.FC = () => {
 };
 
 export default App;
+
 
 

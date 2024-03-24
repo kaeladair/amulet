@@ -1,3 +1,4 @@
+
 export type EmotionWord =
     | 'Admiration'
     | 'Adoration'
@@ -108,7 +109,68 @@ export const emotionsToStressLevels = (emotions: EmotionWord[]): number[] => {
         'Sympathy': 3.7,
         'Tiredness': 6.9,
         'Triumph': 4.1,
+        
     };
 
     return emotions.map((emotion: EmotionWord) => mapping[emotion]);
+};
+
+
+export const emotionsToColors = (emotion: string): string => {
+    const colorMapping: Record<string, string> = {
+        'Admiration': '#FFD54F', // Lighter Amber
+        'Adoration': '#FFF176', // Light Yellow
+        'Aesthetic Appreciation': '#DCE775', // Light Lime
+        'Amusement': '#4DD0E1', // Lighter Cyan
+        'Anger': '#EF5350', // Lighter Red
+        'Annoyance': '#F06292', // Lighter Pink
+        'Anxiety': '#BA68C8', // Lighter Deep Purple
+        'Awe': '#9575CD', // Lighter Deep Purple
+        'Awkwardness': '#7986CB', // Lighter Indigo
+        'Boredom': '#CFD8DC', // Lighter Grey
+        'Calmness': '#29B6F6', // Lighter Blue
+        'Concentration': '#90A4AE', // Lighter Blue Grey
+        'Confusion': '#FFB74D', // Lighter Orange
+        'Contemplation': '#A1887F', // Lighter Brown
+        'Contempt': '#EF5350', // Lighter Red
+        'Contentment': '#81C784', // Lighter Green
+        'Craving': '#FF8A65', // Lighter Deep Orange
+        'Desire': '#FF8A65', // Lighter Deep Orange
+        'Determination': '#DCE775', // Light Lime
+        'Disappointment': '#CFD8DC', // Lighter Grey
+        'Disapproval': '#F06292', // Lighter Pink
+        'Disgust': '#BA68C8', // Lighter Deep Purple
+        'Distress': '#EF5350', // Lighter Red
+        'Doubt': '#90A4AE', // Lighter Blue Grey
+        'Ecstasy': '#FFF176', // Light Yellow
+        'Embarrassment': '#F06292', // Lighter Pink
+        'Empathic Pain': '#EF5350', // Lighter Red
+        'Enthusiasm': '#DCE775', // Light Lime
+        'Entrancement': '#7986CB', // Lighter Indigo
+        'Envy': '#AED581', // Lighter Green
+        'Excitement': '#FFD54F', // Lighter Amber
+        'Fear': '#BA68C8', // Lighter Deep Purple
+        'Gratitude': '#81C784', // Lighter Green
+        'Guilt': '#EF5350', // Lighter Red
+        'Horror': '#BA68C8', // Lighter Deep Purple
+        'Interest': '#29B6F6', // Lighter Blue
+        'Joy': '#FFF176', // Light Yellow
+        'Love': '#F48FB1', // Lighter Pink
+        'Nostalgia': '#FFD54F', // Lighter Amber
+        'Pain': '#E57373', // Lighter Red
+        'Pride': '#7986CB', // Lighter Indigo
+        'Realization': '#4FC3F7', // Lighter Blue
+        'Relief': '#AED581', // Lighter Green
+        'Romance': '#F48FB1', // Lighter Pink
+        'Sadness': '#B0BEC5', // Lighter Grey
+        'Sarcasm': '#FFCC80', // Lighter Orange
+        'Satisfaction': '#81C784', // Lighter Green
+        'Shame': '#EF9A9A', // Lighter Red
+        'Surprise (negative)': '#FFAB91', // Lighter Deep Orange
+        'Surprise (positive)': '#FFF59D', // Light Yellow
+        'Sympathy': '#B39DDB', // Lighter Deep Purple
+        'Tiredness': '#B0BEC5', // Lighter Grey
+        'Triumph': '#DCE775', // Light Lime
+    };
+    return colorMapping[emotion];
 };
