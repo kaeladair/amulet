@@ -13,10 +13,12 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.14",
+    "@mui/x-charts": "^7.0.0",
     "@supabase/supabase-js": "^2.39.8",
     "date-fns": "^3.6.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "supabase": "^1.150.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

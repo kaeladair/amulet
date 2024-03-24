@@ -11,6 +11,7 @@ import {
   CardContent,
 } from '@mui/material';
 import { format, parseISO } from 'date-fns';
+import Analytics from './components/Analytics';
 
 const App: React.FC = () => {
   const [records, setRecords] = useState<any[]>([]);
@@ -55,6 +56,9 @@ const App: React.FC = () => {
         <Typography variant="h4" component="h1" align="center" gutterBottom>
           Audio Transcription Timeline
         </Typography>
+        <div>
+          <Analytics />
+        </div>
         <Grid container spacing={3}>
           {records.map((record) => (
             <Grid item xs={12} key={record.id}>
